@@ -1,4 +1,4 @@
-rom adafruit_servokit import ServoKit
+from adafruit_servokit import ServoKit
 import time
 import curses
 

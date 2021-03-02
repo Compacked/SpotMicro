@@ -1,2 +1,2 @@
 # SpotMicro
-This is a spot micro project I Have been working on, not sure if it works It uses the adafruit PCA9685 raspberry pi servo HAT, Its coded in python, For the manual control it will use the Rii 2.4GHz Mini Wireless Keyboard, You do not have my permission to use this code, Make your own
+This is a spot micro project I Have been working on, not sure if it works It uses the adafruit PCA9685 raspberry pi servo HAT, Its coded in python, For the manual control it will use the Rii 2.4GHz Mini Wireless Keyboard,For object detection is will use HC-SR04 sensor and will stop if it get too close,It will also use Standard HiTEC HS-311 servos, You do not have my permission to use this code, Make your own, You an look up "Sot Micro" and find some helpfull videos

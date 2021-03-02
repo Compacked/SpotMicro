@@ -1,4 +1,4 @@
-mport curses
+import curses
 from SpotManualDriveMovements import Forward
 from SpotManualDriveMovements import Backward
 from SpotManualDriveMovements import Right

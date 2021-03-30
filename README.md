@@ -4,6 +4,9 @@ This is a spot micro project I Have been working on, not sure if it works It use
 To install these packages go into Terminal and type:
 
 ` pip install SpotMain
+
   pip install SpotDistance
+  
   pip install SpotManualDive
+  
   pip install SpotManualDriveMovements`

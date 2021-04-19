@@ -12,3 +12,9 @@ Then make a new py file in VS code and type:
 and:
 
 ` from SpotMicro import SpotMain `
+
+And Last:
+
+` From SpotMicro import SpotManualDriveMovements `
+
+Tehn run one of them. To Control Spot using SpotMain use the number in the code to make Spot Do things. To control spot with SpotManualMovents use the 2.4GHz mini wireless keyboard.

@@ -4,3 +4,11 @@ This is a spot micro project I Have been working on, not sure if it works It use
 To install these packages go into Terminal and type:
 
 `pip install SpotMicro`
+
+Then make a new py file in VS code and type:
+
+` from SpotMicro import SpotManualDrive.py `
+
+and:
+
+` from SpotMicro import SpotMain `

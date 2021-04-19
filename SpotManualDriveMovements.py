@@ -1,8 +1,12 @@
-from adafruit_servokit import ServoKit
+import Adafruit_PCA9685
 import time
 import curses
 from SpotDistance import Sensor1
 from SpotDistance import Sensor2
+
+pwm = Adafruit_PCA9685.PCA9685()
+
+pwm.set_pwm_freq(60)
 
 Sensor1 = distance('cm')
 Sensor2 = distance('cm')
@@ -15,21 +19,25 @@ curses.cbreak()
 screen.keyboard(True)
 
 def Wake_Up():
-    kit.servo[1].angle = 90
-    kit.servo[2].angle = 90
-    kit.servo[3].angle = 90
-    kit.servo[4].angle = 90
+    pwm.set_pwm(1, 0, servo_min)
+    pwm.set_pwm(2, 0, servo_min)
+    pwm.set_pwm(3, 0, servo_min)
+    pwm.set_pwm(4, 0, servo_min)
     
 
 def Forward():
     while True:
-        kit.servo[9].angle = 70
+        pwm.set_pwm(9, 0, servo_min)
+        pwm.set_pwm(9, 0, servo_max)
         time.sleep(1)
-        kit.servo[10].angle = 70
+        pwm.set_pwm(10, 0, servo_min)
+        pwm.set_pwm(10, 0, servo_max)
         time.sleep(1)
-        kit.servo[11].angle = 70
+        pwm.set_pwm(11, 0, servo_min)
+        pwm.set_pwm(11, 0, servo_max)
         time.sleep(1)
-        kit.servo[12].angle = 70
+        pwm.set_pwm(12, 0, servo_min)
+        pwm.set_pwm(12, 0, servo_max)
     if Sensor1 < 15:
         Backward()
     elif Sensor2 < 15:
@@ -40,13 +48,17 @@ def Forward():
 
 def Backward():
     while True:
-        kit.servo[9].angle = 120
-        time.sleep(1)
-        kit.servo[10].angle = 120
-        time.sleep(1)
-        kit.servo[11].angle = 120
-        time.sleep(1)
-        kit.servo[12].angle = 120
+         pwm.set_pwm(9, 0, servo_max)
+         pwm.set_pwm(9, 0, servo_min)
+         time.sleep(1)
+         pwm.set_pwm(10, 0, servo_max)
+         pwm.set_pwm(10, 0, servo_min)
+         time.sleep(1)
+         pwm.set_pwm(11, 0, servo_max)
+         pwm.set_pwm(11, 0, servo_min)
+         time.sleep(1)
+         pwm.set_pwm(12, 0, servo_max)
+         pwm.set_pwm(12, 0, servo_min)
     if curDis < 15:
         Forward()
     elif char == ord('q'):
@@ -54,54 +66,64 @@ def Backward():
         break
 
 def Right():
-    while True:
-            kit.servo[6].angle = 45
+            pwm.set_pwm(6, 0, servo_min)
+            time.sleep(1)
+            pwm.set_pwm(6, 0, servo_max)
             
 
 def Left():
-    while True:
-        kit.servo[5].angle = 145
+         pwm.set_pwm(5, 0, servo_min)
+         time.sleep(1)
+         pwm.set_pwm(5, 0, servo_max)
         
 
 def Look_Up():
-   kit.servo[7].angle = 180
-   kit.servo[8].angle = 180
+   pwm.set_pwm(7, 0, servo_min)
+   pwm.set_pwm(8, 0, servo_min)
 if char == ord('q'):
     break
 
 def Look_Down():
-    kit.servo[5].angle = 180
-    kit.servo[6].angle = 180
+    pwm.set_pwm(5, 0, servo_min)
+    pwm.set_pwm(6, 0, servo_min)
 if char = ord('q'):
     Sleep()
     break
 
 def Up_Stairs():
-    kit.servo[7].angle = 180
-    kit.servo[8].angle = 180
-while True:
-    kit.servo[9].angle = 70
-    time.sleep(1)
-    kit.servo[10].angle = 70
-    time.sleep(1)
-    kit.servo[11].angle = 70
-    time.sleep(1)
-    kit.servo[12].angle = 70
+    pwm.set_pwm(7, 0, servo_min)
+    pwm.set_pwm(8, 0, servo_min)
+    while True:
+        pwm.set_pwm(9, 0, servo_min)
+        pwm.set_pwm(9, 0, servo_max)
+        time.sleep(1)
+        pwm.set_pwm(10, 0, servo_min)
+        pwm.set_pwm(10, 0, servo_min)
+        time.sleep(1)
+        pwm.set_pwm(11, 0, servo_min)
+        pwm.set_pwm(11, 0, servo_max)
+        time.sleep(1)
+        pwm.set_pwm(12, 0, servo_min)
+        pwm.set_max(12, 0, servo_max)
 
 def Down_Stairs():
-    kit.servo[5].angle = 180
-    kit.servo[6].angle = 180
+   pwm.set_pwm(5, 0, servo_min)
+   pwm.set_pwm(6, 0, servo_min)
 while True:
-    kit.servo[9].angle = 70
+    pwm.set_pwm(9, 0, servo_min)
+    pwm.set_pwm(9, 0, servo_max)
     time.sleep(1)
-    kit.servo[10].angle = 70
+    pwm.set_pwm(10, 0, servo_min)
+    pwm.set_pwm(10, 0, servo_max)
     time.sleep(1)
-    kit.servo[11].angle = 70
+    pwm.set_pwm(11, 0, servo_min)
+    pwm.set_pwm(11, 0, servo_max)
     time.sleep(1)
-    kit.servo[12].angle = 70
+    pwm.set_pwm(12, 0, servo_min)
+    pwm.set_pwm(12, 0, servo_max)
 
 def Sleep():
-    kit.servo[1].angle = 0
-    kit.servo[2].angle = 0
-    kit.servo[3].angle = 0
-    kit.servo[4].angle = 0
+    pwm.set_pwm(1, 0, servo_max)
+    pwm.set_pwm(2, 0, servo_max)
+    pwm.set_pwm(3, 0, servo_max)
+    pwm.set_pwm(4, 0, servo_max)

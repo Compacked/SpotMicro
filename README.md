@@ -3,7 +3,7 @@ This is a spot micro project I Have been working on, not sure if it works It use
 
 To install these packages go into Terminal and type:
 
-`pip install SpotMicro`
+`pip install -e git+https://github.com/Compacked/SpotMicro#egg=SpotMicro
 
 Then make a new py file in VS code and type:
 

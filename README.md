@@ -17,3 +17,4 @@ And Last:
 
 ` From SpotMicro import SpotManualDriveMovements `
 
+Then how to use them:
